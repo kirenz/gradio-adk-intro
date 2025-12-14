@@ -19,10 +19,14 @@ A simple but comprehensive example demonstrating how to build an AI agent using 
 
 ```
 gradio-adk-intro/
-├── app.py          # Main application with Gradio UI and agent setup
-├── tools.py        # Custom tool functions that the agent can use
-├── .env            # API key configuration (create this)
-└── README.md       # This file
+├── time_agent/         # Agent package (works with both ADK web and Gradio)
+│   ├── __init__.py     # Package initialization
+│   ├── agent.py        # Main agent code and configuration
+│   ├── tools.py        # Custom tool definitions
+│   └── .env            # API key configuration (create this)
+├── app.py              # Gradio UI application
+├── .env                # API key configuration (root level)
+└── README.md           # This file
 ```
 
 ## Prerequisites
@@ -55,7 +59,7 @@ gradio-adk-intro/
 
 4. **Configure your API key**
 
-   Rename the `.env.example` file to `.env` in the project root and add your Google API key:
+   Rename the `.env.example` file to `.env` in both the project root and the `time_agent/` folder, and add your Google API key:
 
    ```bash
    GOOGLE_API_KEY=YourApiKeyHere
@@ -66,13 +70,26 @@ gradio-adk-intro/
 
 ## Running the Application
 
-Start the Time Agent application:
+### Option 1: Run with Gradio (Web UI)
+
+Start the Time Agent application with Gradio interface:
 
 ```bash
 uv run app.py
 ```
 
-> **Note**: You may see a warning about "App name mismatch detected" - this can be safely ignored. 
+> **Note**: You may see a warning about "App name mismatch detected" - this can be safely ignored.
+
+### Option 2: Run with ADK Web
+
+Navigate to the `time_agent/` directory and run with ADK web:
+
+```bash
+cd time_agent
+adk web
+```
+
+This will start the ADK web interface where you can interact with the agent. 
 
 ## How It Works
 
